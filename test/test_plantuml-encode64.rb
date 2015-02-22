@@ -8,7 +8,6 @@ class PlantUmlEncode64Test < Minitest::Test
     end
 
     def test_encode_one
-
         assert_equal "SyfFqhLppCbCJbMmKiX8pSd91m00", PlantUmlEncode64.new("Bob->Alice : hello").encode()
     end
 

@@ -30,7 +30,7 @@ class PlantUmlEncode64
     # Returns the encoded uml to send to the servlet
     def encode()
         require 'zlib';
-        o = @input.encode("iso-8859-1").force_encoding("utf-8");
+        o = @input.force_encoding("utf-8");
         o = Zlib::Deflate.new(nil, -Zlib::MAX_WBITS).deflate(o, Zlib::FINISH)
         return PlantUmlEncode64.encode64(o);
     end
