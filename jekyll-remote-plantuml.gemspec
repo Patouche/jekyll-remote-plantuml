@@ -3,17 +3,17 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
     s.name        = 'jekyll-remote-plantuml'
-    s.version     = '0.1.0'
+    s.version     = '0.1.2'
     s.date        = '2015-02-20'
+    s.homepage    = "http://github.com/Patouche/jekyll-remote-plantuml"
     s.summary     = "Jekyll remote plantuml"
     s.description = "Jekyll to use plantuml with remote provider without any local plantuml.jar installation"
     s.authors     = ["Patouche"]
     s.email       = 'patralla@gmail.com'
-    s.homepage    = 'http://rubygems.org/gems/jekyll-remote-plantuml'
 
-    s.files       = Dir['lib/*.rb']
+    s.files       = Dir.glob("{lib}/*.rb") + %w(LICENSE.txt README.md)
 
-    s.license       = 'MIT'
+    s.license     = 'MIT'
     s.require_path = "lib"
 
     s.add_runtime_dependency('jekyll', '>= 0.11.2')
