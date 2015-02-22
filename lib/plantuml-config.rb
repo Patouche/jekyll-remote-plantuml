@@ -6,7 +6,7 @@ class PlantUmlConfig
     include Singleton
 
     DEFAULT = {
-        :binaries     => 'assets/images/plantuml/',
+        :assets     => 'assets/images/plantuml/',
         :type         => 'png',
         :encode       => 'encode64',
         :url          => 'http://www.plantuml.com/plantuml/{type}/{code}'

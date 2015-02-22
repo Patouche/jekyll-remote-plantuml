@@ -1,8 +1,11 @@
 require 'minitest/autorun'
 require 'plantuml-loader'
+require 'plantuml-config'
 require 'jekyll'
 
 class RemoteLoaderTest < Minitest::Test
+
+    FOLDER = PlantUmlConfig::DEFAULT[:assets].sub(/^\/*/, '').sub(/^([^\/]+).*$/, '\1');
 
     GENERATED = "assets/images/plantuml/1fc2071adfcf94c83cb527ea98c29cae1656a085ff72acb12db7518fe93f1869.png";
 
@@ -11,7 +14,7 @@ class RemoteLoaderTest < Minitest::Test
     end
 
     def teardown
-        d = Jekyll.configuration({})['destination']
+        d = Jekyll.configuration({})['source'] + File::SEPARATOR + FOLDER;
         if File.exist?(d) then
             FileUtils.remove_dir(d);
         end

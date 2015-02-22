@@ -51,13 +51,13 @@ class RemoteLoader
     def initialize()
         conf = Jekyll.configuration({});
         pconf = PlantUmlConfig::DEFAULT.merge(conf['plantuml'] || {});
-        dirname = conf['source'] + File::SEPARATOR + pconf[:binaries].gsub(/\//, File::SEPARATOR).sub(/\/*$/, '').sub(/^\/*/, '');
+        dirname = conf['source'] + File::SEPARATOR + pconf[:assets].gsub(/\//, File::SEPARATOR).sub(/\/*$/, '').sub(/^\/*/, '');
         Jekyll.logger.info "Directory for storage remote data : %s" % [dirname],
         unless File.directory?(dirname) then
             Jekyll.logger.info "Create directory %s because this seems to be missing" % [dirname]
             FileUtils.mkdir_p(dirname)
         end
-        @prefixUrl = pconf[:binaries];
+        @prefixUrl = pconf[:assets];
         @dirname = dirname;
     end
 
