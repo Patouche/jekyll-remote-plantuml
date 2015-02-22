@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
     s.add_runtime_dependency('jekyll', '>= 0.11.2')
 
     s.add_development_dependency('rake', ["~> 0"])
-    s.add_development_dependency('minitest', ["~> 0"])
+    s.add_development_dependency('minitest', ["~> 5.4"])
 end
