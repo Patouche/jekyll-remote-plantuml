@@ -16,9 +16,9 @@ To use the jekyll-remote-plantuml plugin, you just have to wrap you text between
 For example, to create a basic shema between Bob and Alice, you can write the following code :
 
 ``` text
-{% minibundle js %}
+{% uml %}
 Bob -> Alice : Hello 
-{% endminibundle %}
+{% enduml %}
 ```
 
 This will retrieve the binary from a remote provider and add it into the folder defined in your configuration.
