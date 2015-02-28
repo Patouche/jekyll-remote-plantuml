@@ -1,9 +1,13 @@
+$:.unshift File.expand_path('./lib', __FILE__)
+
 require 'rake/testtask'
 
-Rake::TestTask.new do |t|
-	  t.libs << 'test'
+desc "Run tests"
+task :test do
+    require 'jekyll-remote-plantuml'
+    $:.unshift './test'
+    Dir.glob('test/test*.rb').each { |t| require File.basename(t) }
 end
 
-desc "Run tests"
 task :default => :test
 

@@ -12,11 +12,12 @@ Gem::Specification.new do |s|
     s.email       = 'patralla@gmail.com'
 
     s.files       = Dir.glob("{lib}/*.rb") + %w(LICENSE.txt README.md)
+    s.test_files  = Dir.glob("test/*.rb")
 
     s.license     = 'MIT'
     s.require_path = "lib"
 
-    s.add_runtime_dependency('jekyll', '>= 0.11.2')
+    s.add_runtime_dependency('jekyll', '~> 2.5')
 
     s.add_development_dependency('rake', ["~> 0"])
     s.add_development_dependency('minitest', ["~> 5.4"])

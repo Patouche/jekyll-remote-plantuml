@@ -5,16 +5,22 @@ require 'jekyll'
 
 class RemoteLoaderTest < Minitest::Test
 
-    FOLDER = PlantUmlConfig::DEFAULT[:assets].sub(/^\/*/, '').sub(/^([^\/]+).*$/, '\1');
+    GENERATION_FOLDER = PlantUmlConfig::DEFAULT[:assets].sub(/^\/*/, '');
+
+    ROOT_FOLDER = GENERATION_FOLDER.sub(/^([^\/]+).*$/, '\1');
 
     GENERATED = "assets/images/plantuml/1fc2071adfcf94c83cb527ea98c29cae1656a085ff72acb12db7518fe93f1869.png";
 
     def setup
         Jekyll.logger.log_level = :debug
+        d = d = Jekyll.configuration({})['source'] + File::SEPARATOR + GENERATION_FOLDER;
+        if !File.exist?(d) then
+            FileUtils.mkdir_p(d);
+        end
     end
 
     def teardown
-        d = Jekyll.configuration({})['source'] + File::SEPARATOR + FOLDER;
+        d = Jekyll.configuration({})['source'] + File::SEPARATOR + ROOT_FOLDER;
         if File.exist?(d) then
             FileUtils.remove_dir(d);
         end
@@ -26,7 +32,7 @@ class RemoteLoaderTest < Minitest::Test
     end
 
     def test_savedRemoteBinary_checkDownload
-        skip('Remote connection made')
+        #skip('Remote connection made')
         params = { :url => "http://www.plantuml.com/plantuml/{type}/{code}", :type => "png", :code => "SyfFKj2rKt3CoKnELR1Io4ZDoSa70000" };
 
         obj = RemoteLoader.instance.savedRemoteBinary(params);
@@ -35,7 +41,7 @@ class RemoteLoaderTest < Minitest::Test
     end
 
     def test_savedRemoteBinary_downloadOnlyOnce
-        skip('Remote connection made')
+        #skip('Remote connection made')
         params = { :url => "http://www.plantuml.com/plantuml/{type}/{code}", :type => "png", :code => "SyfFKj2rKt3CoKnELR1Io4ZDoSa70000" };
 
         obj =  RemoteLoader.instance.savedRemoteBinary(params);
@@ -48,7 +54,7 @@ class RemoteLoaderTest < Minitest::Test
     end
 
     def test_loadText
-        skip('Remote connection made')
+        #skip('Remote connection made')
         params = { :url => "http://www.plantuml.com/plantuml/{type}/{code}", :type => "svg", :code => "SyfFKj2rKt3CoKnELR1Io4ZDoSa70000" };
 
         content = RemoteLoader.instance.loadText(params);
