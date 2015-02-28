@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
     s.name        = 'jekyll-remote-plantuml'
-    s.version     = '0.1.2'
+    s.version     = '0.1.3'
     s.date        = '2015-02-20'
     s.homepage    = "http://github.com/Patouche/jekyll-remote-plantuml"
     s.summary     = "Jekyll remote plantuml"

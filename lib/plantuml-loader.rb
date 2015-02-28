@@ -111,8 +111,7 @@ class RemoteLoader
     # Returns the content of the remote
     def loadText(params)
         d = savedRemoteBinary(params);
-        content = File.read(d[:path]);
-        tc = CONTENT_CALLBACKS[params[:type].downcase];
+        content, tc = File.read(d[:path]), CONTENT_CALLBACKS[params[:type].downcase];
         if tc then
             content = content.gsub(tc[:matcher], tc[:replacement]);
         end
