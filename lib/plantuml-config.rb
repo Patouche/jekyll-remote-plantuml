@@ -34,7 +34,7 @@ class PlantUmlConfig
     # If a definition cannot be found in the jekyll configuration, this configuration
     # will be use
     DEFAULT = {
-        :assets       => 'assets/images/plantuml/',
+        :assets       => '_images/plantuml/',
         :type         => 'png',
         :encode       => 'encode64',
         :url          => 'http://www.plantuml.com/plantuml/{type}/{code}'

@@ -9,7 +9,7 @@ class RemoteLoaderTest < Minitest::Test
 
     ROOT_FOLDER = GENERATION_FOLDER.sub(/^([^\/]+).*$/, '\1');
 
-    GENERATED = "assets/images/plantuml/1fc2071adfcf94c83cb527ea98c29cae1656a085ff72acb12db7518fe93f1869.png";
+    GENERATED = "_images/plantuml/1fc2071adfcf94c83cb527ea98c29cae1656a085ff72acb12db7518fe93f1869.png";
 
     def setup
         Jekyll.logger.log_level = :debug

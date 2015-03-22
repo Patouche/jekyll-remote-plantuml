@@ -40,7 +40,7 @@ For now, the configuration is really poor. You can just change the remote provid
 ``` yaml
 plantuml:
   url:	 'http://www.plantuml.com/plantuml/png/{code}'
-  assets:  'assets/images/plantuml/'
+  assets:  '_images/plantuml/'
 ```
 
 ### Notes

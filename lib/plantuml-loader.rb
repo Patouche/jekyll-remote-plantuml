@@ -50,7 +50,8 @@ class RemoteLoader
     # and the directory where all file will be saved
     def initialize()
         conf = Jekyll.configuration({});
-        pconf = PlantUmlConfig::DEFAULT.merge(conf['plantuml'] || {});
+        initConf = conf['plantuml'] || {};
+        pconf = PlantUmlConfig::DEFAULT.merge(initConf);
         dirname = conf['source'] + File::SEPARATOR + pconf[:assets].gsub(/\//, File::SEPARATOR).sub(/\/*$/, '').sub(/^\/*/, '');
         Jekyll.logger.info "Directory for storage remote data : %s" % [dirname],
         unless File.directory?(dirname) then
